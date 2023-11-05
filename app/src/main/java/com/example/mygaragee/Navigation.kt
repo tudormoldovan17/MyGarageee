@@ -35,5 +35,9 @@ fun Navigation() {
                 }
             )
         }
+        composable(Screen.UpdateCarScreen.route) {backStackEntry ->
+            val carId = backStackEntry.arguments?.getString("carId")?.toIntOrNull()
+            UpdateCarScreen(navController, repository, carId)
+        }
     }
 }

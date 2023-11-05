@@ -19,6 +19,15 @@ class Repository {
         carsList.add(car)
     }
 
+    fun updateCar(updatedCar: Car): Boolean {
+        val carIndex = carsList.indexOfFirst { it.id == updatedCar.id }
+        if (carIndex != -1) {
+            carsList[carIndex] = updatedCar
+            return true
+        }
+        return false
+    }
+
     fun deleteCarById(carId: Int): Boolean {
         val carIndex = carsList.indexOfFirst { it.id == carId }
         if (carIndex != -1) {

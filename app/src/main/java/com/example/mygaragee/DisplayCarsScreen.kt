@@ -109,7 +109,7 @@ fun CarItem(car: Car, navController : NavController) {
             ) {
                 Button(
                     onClick = {
-                        navController.navigate(Screen.UpdateCarScreen.route)
+                        navController.navigate(Screen.UpdateCarScreen.createRoute(car.id))
                     },
                     modifier = Modifier.padding(end = 8.dp)
                 ) {
