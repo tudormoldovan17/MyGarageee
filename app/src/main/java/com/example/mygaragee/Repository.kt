@@ -3,8 +3,29 @@ package com.example.mygaragee
 class Repository {
     val carsList: MutableList<Car> = mutableListOf()
 
+    fun getCarById(carId: Int): Car? {
+        return carsList.find { it.id == carId }
+    }
+
+    fun getNewId(): Int {
+        if (carsList.isEmpty()) {
+            return 1
+        }
+        val lastCarId = carsList.last().id
+        return lastCarId + 1
+    }
+
     fun addCar(car: Car) {
         carsList.add(car)
+    }
+
+    fun deleteCarById(carId: Int): Boolean {
+        val carIndex = carsList.indexOfFirst { it.id == carId }
+        if (carIndex != -1) {
+            carsList.removeAt(carIndex)
+            return true
+        }
+        return false
     }
 
     init {
@@ -18,4 +39,5 @@ class Repository {
         carsList.add(Car(4, "Volkswagen Golf", 120, "White", 2019, "Germany"))
         carsList.add(Car(5, "Chevrolet Malibu", 180, "Silver", 2023, "USA"))
     }
+
 }

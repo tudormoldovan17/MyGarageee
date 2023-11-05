@@ -79,7 +79,7 @@ fun AddCarScreen(
             onClick = {
                 if (carName.isNotEmpty() && carHorsepower.isNotEmpty() && carYear.isNotEmpty() && carColor.isNotEmpty() && carCountry.isNotEmpty()) {
                     val newCar = Car(
-                        id = 10,
+                        id = repository.getNewId(),
                         name = carName,
                         horsepower = carHorsepower.toInt(),
                         year = carYear.toInt(),

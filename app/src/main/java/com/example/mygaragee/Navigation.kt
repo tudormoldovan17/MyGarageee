@@ -19,5 +19,21 @@ fun Navigation() {
                 navController.popBackStack()
             }
         }
+        composable(Screen.UpdateCarScreen.route) {
+
+        }
+        composable("deleteCar/{carId}") { backStackEntry ->
+            val carId = backStackEntry.arguments?.getString("carId")?.toIntOrNull()
+            DeleteCarScreen(
+                repository = repository,
+                carId = carId,
+                onDeleteCanceled = {
+                    navController.popBackStack()
+                },
+                onDeleteConfirmed = {
+                    navController.popBackStack()
+                }
+            )
+        }
     }
 }
