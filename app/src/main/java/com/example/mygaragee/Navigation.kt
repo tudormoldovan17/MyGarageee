@@ -15,7 +15,7 @@ fun Navigation() {
             DisplayCarsScreen(navController, repository)
         }
         composable(Screen.AddCarScreen.route) {
-            AddCarScreen(navController, repository) {
+            AddCarScreen(repository) {
                 navController.popBackStack()
             }
         }

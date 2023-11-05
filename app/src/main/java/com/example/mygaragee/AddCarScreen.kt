@@ -7,11 +7,9 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 
 @Composable
 fun AddCarScreen(
-    navController: NavController,
     repository: Repository,
     onCarAdded: () -> Unit
 ) {
@@ -79,7 +77,6 @@ fun AddCarScreen(
 
         Button(
             onClick = {
-                // Validate input and add the car to the repository
                 if (carName.isNotEmpty() && carHorsepower.isNotEmpty() && carYear.isNotEmpty() && carColor.isNotEmpty() && carCountry.isNotEmpty()) {
                     val newCar = Car(
                         id = 10,
